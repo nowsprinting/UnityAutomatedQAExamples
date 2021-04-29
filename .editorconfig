@@ -254,7 +254,7 @@ dotnet_diagnostic.rs2008.severity = none
 
 # IDE0073: File header
 dotnet_diagnostic.ide0073.severity = warning
-file_header_template = Copyright (c) 2020-2021 Koji Hasegawa
+file_header_template = Copyright (c) 2021 Koji Hasegawa.\nThis software is released under the MIT License.
 
 # CSharp code style settings:
 [*.cs]
