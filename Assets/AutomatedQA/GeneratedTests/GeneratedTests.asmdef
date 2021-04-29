@@ -1,0 +1,11 @@
+{
+    "name": "GeneratedTests",
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "references": [
+        "Unity.RecordedPlayback.TestTools",
+        "Unity.AutomatedQA"
+
+    ]
+}
