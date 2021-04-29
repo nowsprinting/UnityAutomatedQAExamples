@@ -4,8 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/Keypad.unity
-    guid: 22f51d77c32d84f14ad2ce580237783d
+  m_Scenes: []
   m_configObjects: {}
