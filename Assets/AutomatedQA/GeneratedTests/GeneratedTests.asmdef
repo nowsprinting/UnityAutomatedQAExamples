@@ -4,8 +4,7 @@
         "TestAssemblies"
     ],
     "references": [
-        "Unity.RecordedPlayback.TestTools",
-        "Unity.AutomatedQA"
-
+        "Unity.AutomatedQA",
+        "Unity.AutomatedQA.TestTools"
     ]
 }

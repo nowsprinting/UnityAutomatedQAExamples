@@ -1,4 +1,5 @@
 ﻿#if UNITY_INCLUDE_TESTS
+using System;
 using System.Collections;
 using System.Linq;
 using NUnit.Framework;
@@ -23,6 +24,8 @@ namespace GeneratedRecordedTests
     /// </summary>
     public abstract class RecordedTestSuiteWithoutScenesInBuild
     {
+        private int timeoutSecs = 60; // TODO: make this configurable via settings
+
         [UnitySetUp]
         public virtual IEnumerator Setup()
         {
@@ -60,8 +63,33 @@ namespace GeneratedRecordedTests
                 yield return null;
             }
 
+            if (recordingData.touchData.Count > 0)
+            {
+                var startTime = DateTime.UtcNow;
+                var firstActionScene = recordingData.touchData[0].scene;
+                if (!string.IsNullOrEmpty(firstActionScene) && SceneManager.GetActiveScene().name != firstActionScene)
+                {
+                    Debug.Log($"Waiting for scene {firstActionScene} to load");
+                }
+
+                while (!string.IsNullOrEmpty(firstActionScene) &&
+                       SceneManager.GetActiveScene().name != firstActionScene)
+                {
+                    Debug.Log(DateTime.UtcNow.Subtract(startTime).TotalSeconds);
+                    if (DateTime.UtcNow.Subtract(startTime).TotalSeconds >= timeoutSecs)
+                    {
+                        Debug.LogError($"Timeout wile waiting for scene {firstActionScene} to load");
+                        break;
+                    }
+
+                    yield return new WaitForSeconds(1);
+                }
+            }
+
             // Start playback
-            RecordedPlaybackController.CreateInstance();
+            CentralAutomationController.Instance.Reset();
+            CentralAutomationController.Instance.AddAutomator<RecordedPlaybackAutomator>();
+            CentralAutomationController.Instance.Run();
         }
     }
 }
