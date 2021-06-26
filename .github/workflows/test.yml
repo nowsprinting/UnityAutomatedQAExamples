@@ -22,6 +22,12 @@ jobs:
           submodules: false
           lfs: false
 
+      # Cache
+      - uses: actions/cache@v2
+        with:
+          path: Library
+          key: ${{ hashFiles('ProjectSettings/ProjectVersion.txt') }}
+
       # Test
       - name: Run tests
         uses: game-ci/unity-test-runner@v2
