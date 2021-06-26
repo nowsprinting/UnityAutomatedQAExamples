@@ -22,20 +22,6 @@ jobs:
       # Meta file check
       - name: Meta file check
         uses: DeNA/unity-meta-check@3.0.0-alpha1
-        with:
-          enable_autofix: false
-          autofix_globs: .
-          enable_junit: true
-          junit_xml_path: junit.xml
-          enable_pr_comment: false
-          pr_comment_lang: ja
-          pr_comment_send_success: true
-        env:
-          GITHUB_TOKEN: "${{ secrets.YOUR_GITHUB_TOKEN }}"
-      - uses: mikepenz/action-junit-report@v2
-        with:
-          report_paths: junit.xml
-        if: always()
 
       # Notification
       - name: Slack notification
