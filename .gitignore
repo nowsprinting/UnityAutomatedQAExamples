@@ -162,7 +162,8 @@ fabric.properties
 /results/
 
 # NuGetForUnity package install directory
-/[Aa]ssets/[Pp]ackages*
+/[Aa]ssets/[Pp]ackages/
+/[Aa]ssets/[Pp]ackages.meta
 
 # 3rd party editor extensions
 /[Aa]ssets/[Cc]onsole[Pp]ro*
