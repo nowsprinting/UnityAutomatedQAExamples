@@ -34,7 +34,7 @@ jobs:
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           artifactsPath: Logs
-          customParameters: -testCategory "!IgnoreCI" -burst-disable-compilation -debugCodeOptimization -enableCodeCoverage -coverageResultsPath Logs -coverageOptions 'generateAdditionalMetrics;generateHtmlReport;assemblyFilters:+<user>,-*Tests'
+          customParameters: -burst-disable-compilation -debugCodeOptimization -enableCodeCoverage -coverageResultsPath Logs -coverageOptions 'generateAdditionalMetrics;generateHtmlReport;assemblyFilters:+<user>,-*Tests'
           # see: https://docs.unity3d.com/Packages/com.unity.testtools.codecoverage@1.1/manual/CoverageBatchmode.html
         env:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}

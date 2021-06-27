@@ -1,12 +1,17 @@
 PROJECT_HOME?=$(PWD)
-UNITY_VERSION?=$(shell grep 'm_EditorVersion:' $(PROJECT_HOME)/ProjectSettings/ProjectVersion.txt | grep -o -E '\d{4}\.[1-4]\.\d+[abfp]\d+')
-UNITY?=/Applications/Unity/HUB/Editor/$(UNITY_VERSION)/Unity.app/Contents/MacOS/Unity
 BUILD_DIR?=$(PROJECT_HOME)/Build
 LOG_DIR?=$(PROJECT_HOME)/Logs
+UNITY_VERSION?=$(shell grep 'm_EditorVersion:' $(PROJECT_HOME)/ProjectSettings/ProjectVersion.txt | grep -o -E '\d{4}\.[1-4]\.\d+[abfp]\d+')
 
-# Code Coverage report filter
-# see: https://docs.unity3d.com/Packages/com.unity.testtools.codecoverage@0.2/manual/UsingCodeCoverage.html#using-code-coverage-in-batchmode
-COVERAGE_ASSEMBLY_FILTERS?=+Assembly-CSharp,-*Tests
+# macOS
+UNITY_HOME=/Applications/Unity/HUB/Editor/$(UNITY_VERSION)/Unity.app/Contents
+UNITY?=$(UNITY_HOME)/MacOS/Unity
+UNITY_YAML_MERGE?=$(UNITY_HOME)/Tools/UnityYAMLMerge
+STANDALONE_PLAYER=StandaloneOSX
+
+# Code Coverage report filter (comma separated)
+# see: https://docs.unity3d.com/Packages/com.unity.testtools.codecoverage@1.1/manual/CoverageBatchmode.html
+COVERAGE_ASSEMBLY_FILTERS?=+<user>,-*Tests
 
 define test_arguments
   -projectPath $(PROJECT_HOME) \
@@ -34,22 +39,11 @@ define cover
   mkdir -p $(LOG_DIR)
   $(UNITY) \
     $(TEST_ARGUMENTS) \
+    -burst-disable-compilation \
     -debugCodeOptimization \
     -enableCodeCoverage \
     -coverageResultsPath $(LOG_DIR) \
-    -coverageOptions 'enableCyclomaticComplexity;assemblyFilters:$(COVERAGE_ASSEMBLY_FILTERS)'
-endef
-
-define cover_report
-  mkdir -p $(LOG_DIR)
-  $(UNITY) \
-    -projectPath $(PROJECT_HOME) \
-    -batchmode \
-    -debugCodeOptimization \
-    -enableCodeCoverage \
-    -coverageResultsPath $(LOG_DIR) \
-    -coverageOptions 'generateHtmlReport;generateBadgeReport' \
-    -quit
+    -coverageOptions 'generateAdditionalMetrics;generateHtmlReport;assemblyFilters:$(COVERAGE_ASSEMBLY_FILTERS)'
 endef
 
 .PHONY: clean
@@ -61,9 +55,6 @@ clean:
 test:
 	$(call cover,playmode)
 
-.PHONY: cover_report
-cover_report:
-	$(call cover_report)
-
-.PHONY: cover
-cover: test cover_report
+.PHONY: test_standalone_player
+test_standalone_player:
+	$(call test,$(STANDALONE_PLAYER))
