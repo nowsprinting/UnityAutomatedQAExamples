@@ -1,6 +1,7 @@
 ﻿// Copyright (c) 2021 Koji Hasegawa.
 // This software is released under the MIT License.
 
+using System.Collections.Generic;
 using System.Linq;
 using AutomatedQA.Editor;
 using UnityEditor;
@@ -23,13 +24,19 @@ namespace AutomatedQA.Editor
         {
             var scenes = AssetDatabase.FindAssets("t:SceneAsset", new string[] {"Assets"})
                 .Select(AssetDatabase.GUIDToAssetPath).ToArray();
-            // TODO: Filter only the scenes using in the Automated QA testing
 
-            if (scenes.Length > 0)
+            var buildSceneList = new List<string>(playerOptions.scenes);
+            foreach (var s in scenes)
             {
-                playerOptions.scenes = scenes;
+                if (!buildSceneList.Contains(s))
+                {
+                    buildSceneList.Add(s);
+                }
             }
+            // Only missing scenes are added to the array.
+            // If change the scene order in the `playerOptions.scenes` array, the test may not start.
 
+            playerOptions.scenes = buildSceneList.ToArray();
             return playerOptions;
         }
     }
