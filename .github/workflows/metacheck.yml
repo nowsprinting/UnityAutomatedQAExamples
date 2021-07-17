@@ -21,7 +21,7 @@ jobs:
 
       # Meta file check
       - name: Meta file check
-        uses: DeNA/unity-meta-check@3.0.0-alpha1
+        uses: DeNA/unity-meta-check@3.0.0-beta4
 
       # Notification
       - name: Slack notification
