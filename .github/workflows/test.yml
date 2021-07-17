@@ -37,9 +37,7 @@ jobs:
           customParameters: -burst-disable-compilation -debugCodeOptimization -enableCodeCoverage -coverageResultsPath Logs -coverageOptions 'generateAdditionalMetrics;generateHtmlReport;assemblyFilters:+<user>,-*Tests'
           # see: https://docs.unity3d.com/Packages/com.unity.testtools.codecoverage@1.1/manual/CoverageBatchmode.html
         env:
-          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE_2019 }}
       - name: Upload test results
         uses: actions/upload-artifact@v2
         with:
