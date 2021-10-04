@@ -1,8 +1,11 @@
 using System.Collections;
+using System.Linq;
 using NUnit.Framework;
-using Unity.RecordedTesting;
 using Unity.CloudTesting;
+using Unity.RecordedTesting;
+using UnityEngine;
 using UnityEngine.TestTools;
+using UnityEngine.UI;
 
 namespace GeneratedAutomationTests
 {
@@ -21,7 +24,11 @@ namespace GeneratedAutomationTests
         public IEnumerator CanPlayToEnd()
         {
             yield return RecordedTesting.TestPlayToEnd();
-            Assert.IsTrue(true);
+
+            // Custom assertion example
+            var historyText = Object.FindObjectsOfType<Text>().FirstOrDefault(x => x.name.Equals("HistoryText"));
+            Assert.That(historyText, Is.Not.Null);
+            Assert.That(historyText.text, Is.EqualTo("4126"));
         }
     }
 }
