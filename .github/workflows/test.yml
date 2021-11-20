@@ -8,6 +8,8 @@ on:
       - '**.md'
   pull_request:
     types: [ opened, synchronize, reopened ]  # Same as default
+    paths-ignore:
+      - '**.md'
 
 jobs:
   test:
