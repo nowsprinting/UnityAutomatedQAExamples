@@ -1,0 +1,535 @@
+{
+    "entryScene": "Keypad",
+    "recordingType": 0,
+    "recordedAspectRatio": {
+        "x": 770.0,
+        "y": 1626.0
+    },
+    "recordedResolution": {
+        "x": 6016.0,
+        "y": 3384.0
+    },
+    "recordings": [],
+    "touchData": [
+        {
+            "pointerId": 0,
+            "eventType": 1,
+            "timeDelta": 2.6129305362701418,
+            "position": {
+                "x": 0.37441131472587588,
+                "y": 0.6978892087936401
+            },
+            "positional": false,
+            "scene": "Keypad",
+            "button": 0,
+            "waitSignal": "",
+            "emitSignal": "",
+            "keyCode": "",
+            "inputText": "",
+            "inputDuration": 0.0,
+            "objectName": "Button7",
+            "objectTag": "Untagged",
+            "objectHierarchy": "KeypadCanvas",
+            "objectIndex": 0,
+            "querySelector": "",
+            "objectOffset": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "pointerId": 0,
+            "eventType": 2,
+            "timeDelta": 0.33974456787109377,
+            "position": {
+                "x": 0.37441131472587588,
+                "y": 0.6978892087936401
+            },
+            "positional": false,
+            "scene": "Keypad",
+            "button": 0,
+            "waitSignal": "",
+            "emitSignal": "",
+            "keyCode": "",
+            "inputText": "",
+            "inputDuration": 0.0,
+            "objectName": "Button7",
+            "objectTag": "Untagged",
+            "objectHierarchy": "KeypadCanvas",
+            "objectIndex": 0,
+            "querySelector": "",
+            "objectOffset": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "pointerId": 0,
+            "eventType": 1,
+            "timeDelta": 3.298816442489624,
+            "position": {
+                "x": 0.5,
+                "y": 0.6978892087936401
+            },
+            "positional": false,
+            "scene": "Keypad",
+            "button": 0,
+            "waitSignal": "",
+            "emitSignal": "",
+            "keyCode": "",
+            "inputText": "",
+            "inputDuration": 0.0,
+            "objectName": "Button8",
+            "objectTag": "Untagged",
+            "objectHierarchy": "KeypadCanvas",
+            "objectIndex": 0,
+            "querySelector": "",
+            "objectOffset": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "pointerId": 0,
+            "eventType": 2,
+            "timeDelta": 0.4000282287597656,
+            "position": {
+                "x": 0.5,
+                "y": 0.6978892087936401
+            },
+            "positional": false,
+            "scene": "Keypad",
+            "button": 0,
+            "waitSignal": "",
+            "emitSignal": "",
+            "keyCode": "",
+            "inputText": "",
+            "inputDuration": 0.0,
+            "objectName": "Button8",
+            "objectTag": "Untagged",
+            "objectHierarchy": "KeypadCanvas",
+            "objectIndex": 0,
+            "querySelector": "",
+            "objectOffset": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "pointerId": 0,
+            "eventType": 1,
+            "timeDelta": 3.3404970169067385,
+            "position": {
+                "x": 0.37441131472587588,
+                "y": 0.5
+            },
+            "positional": false,
+            "scene": "Keypad",
+            "button": 0,
+            "waitSignal": "",
+            "emitSignal": "",
+            "keyCode": "",
+            "inputText": "",
+            "inputDuration": 0.0,
+            "objectName": "Button4",
+            "objectTag": "Untagged",
+            "objectHierarchy": "KeypadCanvas",
+            "objectIndex": 0,
+            "querySelector": "",
+            "objectOffset": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "pointerId": 0,
+            "eventType": 2,
+            "timeDelta": 0.39647388458251955,
+            "position": {
+                "x": 0.37441131472587588,
+                "y": 0.5
+            },
+            "positional": false,
+            "scene": "Keypad",
+            "button": 0,
+            "waitSignal": "",
+            "emitSignal": "",
+            "keyCode": "",
+            "inputText": "",
+            "inputDuration": 0.0,
+            "objectName": "Button4",
+            "objectTag": "Untagged",
+            "objectHierarchy": "KeypadCanvas",
+            "objectIndex": 0,
+            "querySelector": "",
+            "objectOffset": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "pointerId": 0,
+            "eventType": 1,
+            "timeDelta": 3.3229446411132814,
+            "position": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "positional": false,
+            "scene": "Keypad",
+            "button": 0,
+            "waitSignal": "",
+            "emitSignal": "",
+            "keyCode": "",
+            "inputText": "",
+            "inputDuration": 0.0,
+            "objectName": "Button5",
+            "objectTag": "Untagged",
+            "objectHierarchy": "KeypadCanvas",
+            "objectIndex": 0,
+            "querySelector": "",
+            "objectOffset": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "pointerId": 0,
+            "eventType": 2,
+            "timeDelta": 0.45639991760253909,
+            "position": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "positional": false,
+            "scene": "Keypad",
+            "button": 0,
+            "waitSignal": "",
+            "emitSignal": "",
+            "keyCode": "",
+            "inputText": "",
+            "inputDuration": 0.0,
+            "objectName": "Button5",
+            "objectTag": "Untagged",
+            "objectHierarchy": "KeypadCanvas",
+            "objectIndex": 0,
+            "querySelector": "",
+            "objectOffset": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "pointerId": 0,
+            "eventType": 1,
+            "timeDelta": 3.2836475372314455,
+            "position": {
+                "x": 0.6255887150764465,
+                "y": 0.5
+            },
+            "positional": false,
+            "scene": "Keypad",
+            "button": 0,
+            "waitSignal": "",
+            "emitSignal": "",
+            "keyCode": "",
+            "inputText": "",
+            "inputDuration": 0.0,
+            "objectName": "Button6",
+            "objectTag": "Untagged",
+            "objectHierarchy": "KeypadCanvas",
+            "objectIndex": 0,
+            "querySelector": "",
+            "objectOffset": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "pointerId": 0,
+            "eventType": 2,
+            "timeDelta": 0.36849021911621096,
+            "position": {
+                "x": 0.6255887150764465,
+                "y": 0.5
+            },
+            "positional": false,
+            "scene": "Keypad",
+            "button": 0,
+            "waitSignal": "",
+            "emitSignal": "",
+            "keyCode": "",
+            "inputText": "",
+            "inputDuration": 0.0,
+            "objectName": "Button6",
+            "objectTag": "Untagged",
+            "objectHierarchy": "KeypadCanvas",
+            "objectIndex": 0,
+            "querySelector": "",
+            "objectOffset": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "pointerId": 0,
+            "eventType": 1,
+            "timeDelta": 3.3082332611083986,
+            "position": {
+                "x": 0.6255887150764465,
+                "y": 0.5
+            },
+            "positional": false,
+            "scene": "Keypad",
+            "button": 0,
+            "waitSignal": "",
+            "emitSignal": "",
+            "keyCode": "",
+            "inputText": "",
+            "inputDuration": 0.0,
+            "objectName": "Button6",
+            "objectTag": "Untagged",
+            "objectHierarchy": "KeypadCanvas",
+            "objectIndex": 0,
+            "querySelector": "",
+            "objectOffset": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "pointerId": 0,
+            "eventType": 2,
+            "timeDelta": 0.42382049560546877,
+            "position": {
+                "x": 0.6255887150764465,
+                "y": 0.5
+            },
+            "positional": false,
+            "scene": "Keypad",
+            "button": 0,
+            "waitSignal": "",
+            "emitSignal": "",
+            "keyCode": "",
+            "inputText": "",
+            "inputDuration": 0.0,
+            "objectName": "Button6",
+            "objectTag": "Untagged",
+            "objectHierarchy": "KeypadCanvas",
+            "objectIndex": 0,
+            "querySelector": "",
+            "objectOffset": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "pointerId": 0,
+            "eventType": 1,
+            "timeDelta": 3.331045150756836,
+            "position": {
+                "x": 0.5,
+                "y": 0.30211082100868227
+            },
+            "positional": false,
+            "scene": "Keypad",
+            "button": 0,
+            "waitSignal": "",
+            "emitSignal": "",
+            "keyCode": "",
+            "inputText": "",
+            "inputDuration": 0.0,
+            "objectName": "Button2",
+            "objectTag": "Untagged",
+            "objectHierarchy": "KeypadCanvas",
+            "objectIndex": 0,
+            "querySelector": "",
+            "objectOffset": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "pointerId": 0,
+            "eventType": 2,
+            "timeDelta": 0.4324493408203125,
+            "position": {
+                "x": 0.5,
+                "y": 0.30211082100868227
+            },
+            "positional": false,
+            "scene": "Keypad",
+            "button": 0,
+            "waitSignal": "",
+            "emitSignal": "",
+            "keyCode": "",
+            "inputText": "",
+            "inputDuration": 0.0,
+            "objectName": "Button2",
+            "objectTag": "Untagged",
+            "objectHierarchy": "KeypadCanvas",
+            "objectIndex": 0,
+            "querySelector": "",
+            "objectOffset": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "pointerId": 0,
+            "eventType": 1,
+            "timeDelta": 3.380342483520508,
+            "position": {
+                "x": 0.6255887150764465,
+                "y": 0.30211082100868227
+            },
+            "positional": false,
+            "scene": "Keypad",
+            "button": 0,
+            "waitSignal": "",
+            "emitSignal": "",
+            "keyCode": "",
+            "inputText": "",
+            "inputDuration": 0.0,
+            "objectName": "Button3",
+            "objectTag": "Untagged",
+            "objectHierarchy": "KeypadCanvas",
+            "objectIndex": 0,
+            "querySelector": "",
+            "objectOffset": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "pointerId": 0,
+            "eventType": 2,
+            "timeDelta": 0.4879913330078125,
+            "position": {
+                "x": 0.6255887150764465,
+                "y": 0.30211082100868227
+            },
+            "positional": false,
+            "scene": "Keypad",
+            "button": 0,
+            "waitSignal": "",
+            "emitSignal": "",
+            "keyCode": "",
+            "inputText": "",
+            "inputDuration": 0.0,
+            "objectName": "Button3",
+            "objectTag": "Untagged",
+            "objectHierarchy": "KeypadCanvas",
+            "objectIndex": 0,
+            "querySelector": "",
+            "objectOffset": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "pointerId": 0,
+            "eventType": 1,
+            "timeDelta": 3.360574722290039,
+            "position": {
+                "x": 0.37441131472587588,
+                "y": 0.5
+            },
+            "positional": false,
+            "scene": "Keypad",
+            "button": 0,
+            "waitSignal": "",
+            "emitSignal": "",
+            "keyCode": "",
+            "inputText": "",
+            "inputDuration": 0.0,
+            "objectName": "Button4",
+            "objectTag": "Untagged",
+            "objectHierarchy": "KeypadCanvas",
+            "objectIndex": 0,
+            "querySelector": "",
+            "objectOffset": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "pointerId": 0,
+            "eventType": 2,
+            "timeDelta": 0.3553962707519531,
+            "position": {
+                "x": 0.37441131472587588,
+                "y": 0.5
+            },
+            "positional": false,
+            "scene": "Keypad",
+            "button": 0,
+            "waitSignal": "",
+            "emitSignal": "",
+            "keyCode": "",
+            "inputText": "",
+            "inputDuration": 0.0,
+            "objectName": "Button4",
+            "objectTag": "Untagged",
+            "objectHierarchy": "KeypadCanvas",
+            "objectIndex": 0,
+            "querySelector": "",
+            "objectOffset": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "pointerId": -1,
+            "eventType": 0,
+            "timeDelta": 2.0,
+            "position": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "positional": false,
+            "scene": "",
+            "button": 0,
+            "waitSignal": "",
+            "emitSignal": "playbackComplete",
+            "keyCode": "",
+            "inputText": "",
+            "inputDuration": 0.0,
+            "objectName": "",
+            "objectTag": "",
+            "objectHierarchy": "",
+            "objectIndex": 0,
+            "querySelector": "",
+            "objectOffset": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "pointerId": 0,
+            "eventType": 0,
+            "timeDelta": 2.0072898864746095,
+            "position": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "positional": false,
+            "scene": "Keypad",
+            "button": 0,
+            "waitSignal": "",
+            "emitSignal": "playbackComplete",
+            "keyCode": "",
+            "inputText": "",
+            "inputDuration": 0.0,
+            "objectName": "",
+            "objectTag": "",
+            "objectHierarchy": "",
+            "objectIndex": 0,
+            "querySelector": "",
+            "objectOffset": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        }
+    ]
+}

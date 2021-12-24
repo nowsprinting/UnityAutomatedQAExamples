@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ec80b19598f2a488b5f2e10e21d0f7, type: 3}
+  m_Name: AutomatedRunByScenario
+  m_EditorClassIdentifier: 
+  config:
+    quitOnFinish: 1
+    automators:
+    - id: 0
+    - id: 1
+    - id: 2
+    - id: 3
+    - id: 4
+  references:
+    version: 1
+    00000000:
+      type: {class: RecordedPlaybackAutomatorConfig, ns: Unity.RecordedPlayback, asm: Unity.AutomatedQA}
+      data:
+        recordingFile: {fileID: 4900000, guid: 8804a913c651343f18677cabfe0772b3, type: 3}
+        loadEntryScene: 1
+    00000001:
+      type: {class: RecordedPlaybackAutomatorConfig, ns: Unity.RecordedPlayback, asm: Unity.AutomatedQA}
+      data:
+        recordingFile: {fileID: 4900000, guid: feb63abd353754237a086224d1c4ea33, type: 3}
+        loadEntryScene: 0
+    00000002:
+      type: {class: RecordedPlaybackAutomatorConfig, ns: Unity.RecordedPlayback, asm: Unity.AutomatedQA}
+      data:
+        recordingFile: {fileID: 4900000, guid: 31dec61084f2648639432861ec8950c0, type: 3}
+        loadEntryScene: 0
+    00000003:
+      type: {class: RecordedPlaybackAutomatorConfig, ns: Unity.RecordedPlayback, asm: Unity.AutomatedQA}
+      data:
+        recordingFile: {fileID: 4900000, guid: f9e2ff6af108a4fb780086d5e8b2d6de, type: 3}
+        loadEntryScene: 0
+    00000004:
+      type: {class: RecordedPlaybackAutomatorConfig, ns: Unity.RecordedPlayback, asm: Unity.AutomatedQA}
+      data:
+        recordingFile: {fileID: 4900000, guid: 0767a934be8ac49ff8b8770d39771736, type: 3}
+        loadEntryScene: 0
