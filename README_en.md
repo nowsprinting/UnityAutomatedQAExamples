@@ -3,40 +3,40 @@
 [![Meta file check](https://github.com/nowsprinting/UnityAutomatedQAExamples/actions/workflows/metacheck.yml/badge.svg)](https://github.com/nowsprinting/UnityAutomatedQAExamples/actions/workflows/metacheck.yml)
 [![Test](https://github.com/nowsprinting/UnityAutomatedQAExamples/actions/workflows/test.yml/badge.svg)](https://github.com/nowsprinting/UnityAutomatedQAExamples/actions/workflows/test.yml)
 
-Click [English](./README_en.md) for English page if you need.
+Click [日本語](./README.md) for the Japanese page if you need.
 
 
 
-## このリポジトリについて
+## About this repository
 
-このリポジトリは、同人誌『Unity Automated QA攻略ガイド』のサンプルプロジェクトです。
+This repository is a sample project of "Unity Automated QA Guidebook".
 
-書籍は次のWebサイトから購入できます。
+Books can be purchased from the following websites, but they are written in Japanese.
 
 #### BOOTH
 [Unity Automated QA攻略ガイド - いか小屋 - BOOTH](https://ikagoya.booth.pm/items/3534629)
 
-#### 技術書典マーケット
+#### Tech Book Fest Market
 [Unity Automated QA攻略ガイド：いか小屋](https://techbookfest.org/product/5755610421264384)
 
 
 
-## サンプルプロジェクトの構造
+## Structure of sample project
 
 ### Scenes
 
 ```
 Assets
 ├── Scenes
-│   ├── Keypad.unity                    // Canvas + ButtonのデモScene
-│   ├── ObjectDemo.unity                // 非CanvasのデモScene
+│   ├── Keypad.unity                    // Canvas + Button demo Scene
+│   ├── ObjectDemo.unity                // Not Canvas demo Scene
 │   ├── RecordableInputDemo.unity
-│   └── Title.unity                     // Scene遷移デモ用のタイトル画面
+│   └── Title.unity                     // Scene transition demo
 ```
 
 ### Recordings
 
-第2章 Recorded PlaybackでUI操作を記録したJSONファイル
+Chapter 2 Recorded Playback
 
 ```
 Assets
@@ -51,7 +51,7 @@ Assets
 
 ### GeneratedTests
 
-第3章 Test Generationで`Keypad2013.json`から生成したテストコード
+Chapter 3 Test Generation
 
 3.2.1 Full Tests + Use Simplified Driver Code : on
 
@@ -86,16 +86,16 @@ Assets
 
 ### Automators
 
-第5章 AutomatorsのAutomated Run設定例
+Chapter 5 Automators
 
 ```
 Assets
 ├── AutomatedRun
-│   ├── GameCrawlerExample.asset        // 5.3.2 LoadSceneAutomatorも含む
+│   ├── GameCrawlerExample.asset        // with 5.3.2 LoadSceneAutomator
 │   └── PlaybackScenarioExample.asset
 ```
 
-5.2 APIによる実行
+5.2 Run via API
 
 ```
 Assets
@@ -104,7 +104,7 @@ Assets
 │   │   └── CentralAutomationControllerExample.cs
 ```
 
-5.4 カスタムAutomator
+5.4 Custom Automator
 
 ```
 Assets
