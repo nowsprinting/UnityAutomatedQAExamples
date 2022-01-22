@@ -28,8 +28,8 @@ Click [English](./README_en.md) for English page if you need.
 ```
 Assets
 ├── Scenes
-│   ├── Keypad.unity                    // Canvas + ButtonのデモScene
-│   ├── ObjectDemo.unity                // 非CanvasのデモScene
+│   ├── Keypad.unity                    // Canvas + Buttonのデモscene
+│   ├── ObjectDemo.unity                // 非Canvasのデモscene
 │   ├── RecordableInputDemo.unity
 │   └── Title.unity                     // Scene遷移デモ用のタイトル画面
 ```
@@ -84,7 +84,7 @@ Assets
 │   │   ├── SimpleTests_Keypad2013.cs
 ```
 
-### Automators
+### AutomatedRun
 
 第5章 AutomatorsのAutomated Run設定例
 

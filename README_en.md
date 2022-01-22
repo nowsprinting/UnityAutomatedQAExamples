@@ -9,7 +9,7 @@ Click [日本語](./README.md) for the Japanese page if you need.
 
 ## About this repository
 
-This repository is a sample project of "Unity Automated QA Guidebook".
+This repository is a sample project for the "Unity Automated QA Guidebook".
 
 Books can be purchased from the following websites, but they are written in Japanese.
 
@@ -28,10 +28,10 @@ Books can be purchased from the following websites, but they are written in Japa
 ```
 Assets
 ├── Scenes
-│   ├── Keypad.unity                    // Canvas + Button demo Scene
-│   ├── ObjectDemo.unity                // Not Canvas demo Scene
+│   ├── Keypad.unity                    // Canvas + Button demo scene
+│   ├── ObjectDemo.unity                // Not Canvas demo scene
 │   ├── RecordableInputDemo.unity
-│   └── Title.unity                     // Scene transition demo
+│   └── Title.unity                     // Transition demo scene
 ```
 
 ### Recordings
@@ -84,7 +84,7 @@ Assets
 │   │   ├── SimpleTests_Keypad2013.cs
 ```
 
-### Automators
+### AutomatedRun
 
 Chapter 5 Automators
 
