@@ -14,48 +14,63 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        targetPlatform:
+          - StandaloneLinux64
+        unityVersion: # Available versions see: https://game.ci/docs/docker/versions
+          - 2019.4.34f1
 
     steps:
       # Checkout
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           submodules: false
           lfs: false
 
       # Cache
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         with:
           path: Library
-          key: ${{ hashFiles('ProjectSettings/ProjectVersion.txt') }}
+          key: Library-${{ matrix.targetPlatform }}-${{ matrix.unityVersion }}
+          restore-keys: |
+            Library-${{ matrix.targetPlatform }}-
+            Library-
 
       # Test
+      - name: Create license secret key
+        id: license
+        run: echo "::set-output name=secret_key::UNITY_LICENSE_$(echo ${{ matrix.unityVersion }} | cut -c 1-4)"
+
       - name: Run tests
         uses: game-ci/unity-test-runner@v2
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
+          unityVersion: ${{ matrix.unityVersion }}  # 通常は未指定（`auto`）でok
           artifactsPath: Logs
           customParameters: -burst-disable-compilation -debugCodeOptimization -enableCodeCoverage -coverageResultsPath Logs -coverageOptions 'generateAdditionalMetrics;generateHtmlReport;assemblyFilters:+<user>,-*Tests'
           # see: https://docs.unity3d.com/Packages/com.unity.testtools.codecoverage@1.1/manual/CoverageBatchmode.html
         env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE_2019 }}
+          UNITY_LICENSE: ${{ secrets[steps.license.outputs.secret_key] }}
+
       - name: Upload test results
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
-          name: TestResults
+          name: TestResults-Unity${{ matrix.unityVersion }}
           path: |
             Logs
             $XDG_CONFIG_HOME/unity3d/**/AutomatedQA
         if: always()
 
-      # Notification
-      - uses: 8398a7/action-slack@v3
+  notification:
+    needs: test
+    if: always()
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: Gamesight/slack-workflow-status@v1.1.0
         with:
-          status: ${{ job.status }}
-          fields: repo,message,job,took,eventName,ref,pullRequest
-          mention: here
-          if_mention: failure
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        if: always()
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
