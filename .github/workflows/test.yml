@@ -64,7 +64,7 @@ jobs:
             $XDG_CONFIG_HOME/unity3d/**/AutomatedQA
         if: always()
 
-  notification:
+  notify:
     needs: test
     if: always()
     runs-on: ubuntu-latest
