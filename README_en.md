@@ -25,6 +25,8 @@ Books can be purchased from the following websites, but they are written in Japa
 
 ### Scenes
 
+Demo scenes for recording/ playback and testing
+
 ```
 Assets
 ├── Scenes

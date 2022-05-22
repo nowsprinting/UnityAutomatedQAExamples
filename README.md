@@ -25,6 +25,8 @@ Click [English](./README_en.md) for English page if you need.
 
 ### Scenes
 
+記録・再生・テスト対象のデモscene
+
 ```
 Assets
 ├── Scenes
@@ -51,7 +53,8 @@ Assets
 
 ### GeneratedTests
 
-第3章 Test Generationで`Keypad2013.json`から生成したテストコード
+第3章 Test Generationで`Keypad2013.json`から生成したテストコード。
+いずれも「3.4.2 アサーションによる検証」のアサーションを追加しています。
 
 #### 3.2.1 Full Tests（Use Simplified Driver Codeがonの場合）
 
