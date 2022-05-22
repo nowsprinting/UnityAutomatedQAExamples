@@ -20,7 +20,7 @@ jobs:
         targetPlatform:
           - StandaloneLinux64
         unityVersion: # Available versions see: https://game.ci/docs/docker/versions
-          - 2019.4.34f1
+          - 2019.4.39f1
 
     steps:
       # Checkout
