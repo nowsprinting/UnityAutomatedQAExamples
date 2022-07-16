@@ -54,7 +54,7 @@ jobs:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           unityVersion: ${{ matrix.unityVersion }}  # 通常は未指定（`auto`）でok
           artifactsPath: Logs
-          coverageOptions: generateAdditionalMetrics;generateHtmlReport;assemblyFilters:+<user>,-*Tests
+          coverageOptions: generateAdditionalMetrics;generateHtmlReport;assemblyFilters:+<user>,-*.Tests,-GeneratedTests
           # see: https://docs.unity3d.com/Packages/com.unity.testtools.codecoverage@1.1/manual/CoverageBatchmode.html
         env:
           UNITY_LICENSE: ${{ secrets[steps.license.outputs.secret_key] }}
