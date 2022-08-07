@@ -40,6 +40,7 @@ define test_arguments
   -silent-crashes \
   -stackTraceLogType Full \
   -runTests \
+  -testCategory "!IgnoreCI" \
   -testPlatform $(TEST_PLATFORM) \
   -testResults $(LOG_DIR)/test_$(TEST_PLATFORM)_results.xml \
   -logFile $(LOG_DIR)/test_$(TEST_PLATFORM).log
