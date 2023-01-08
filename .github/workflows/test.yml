@@ -57,7 +57,6 @@ jobs:
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           unityVersion: ${{ matrix.unityVersion }}  # 通常は未指定（`auto`）でok
-          artifactsPath: Logs
           coverageOptions: generateAdditionalMetrics;generateHtmlReport;assemblyFilters:+<user>,-*.Tests,-GeneratedTests
           # see: https://docs.unity3d.com/Packages/com.unity.testtools.codecoverage@1.1/manual/CoverageBatchmode.html
         env:
@@ -69,7 +68,7 @@ jobs:
         with:
           name: TestResults-Unity${{ matrix.unityVersion }}
           path: |
-            Logs
+            ${{ steps.test.outputs.artifactsPath }}
             ${{ steps.test.outputs.coveragePath }}
             $XDG_CONFIG_HOME/unity3d/**/AutomatedQA
         if: always()
