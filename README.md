@@ -29,11 +29,11 @@ Click [English](./README_en.md) for English page if you need.
 
 ```
 Assets
-├── Scenes
-│   ├── Keypad.unity                    // Canvas + Buttonのデモscene
-│   ├── ObjectDemo.unity                // 非Canvasのデモscene
-│   ├── RecordableInputDemo.unity       // (TBD) 2.6 Input Systemサポートのデモscene
-│   └── Title.unity                     // Scene遷移デモ用のタイトル画面
+└── Scenes
+    ├── Keypad.unity                    // Canvas + Buttonのデモscene
+    ├── ObjectDemo.unity                // 非Canvasのデモscene
+    ├── RecordableInputDemo.unity       // (TBD) 2.6 Input Systemサポートのデモscene
+    └── Title.unity                     // Scene遷移デモ用のタイトル画面
 ```
 
 ### Recordings
@@ -42,13 +42,13 @@ Assets
 
 ```
 Assets
-├── Recordings
-│   ├── Keypad1997.json
-│   ├── Keypad20013.json
-│   ├── Keypad2013.json
-│   ├── KeypadCrawler.json      // 2.4 Game Crawler（記録モード）
-│   ├── KeypadToTitle.json
-│   └── TitleToKeypad.json
+└── Recordings
+    ├── Keypad1997.json
+    ├── Keypad20013.json
+    ├── Keypad2013.json
+    ├── KeypadCrawler.json      // 2.4 Game Crawler（記録モード）
+    ├── KeypadToTitle.json
+    └── TitleToKeypad.json
 ```
 
 ### GeneratedTests
@@ -60,31 +60,31 @@ Assets
 
 ```
 Assets
-├── AutomatedQA
-│   └── GeneratedTests
-│       ├── FullTestsWithPageObjects_Keypad2013.cs
-│       └── PageObjects
-│           └── Scene_Keypad_PageObject.cs
+└── AutomatedQA
+    └── GeneratedTests
+        ├── FullTestsWithPageObjects_Keypad2013.cs
+        └── PageObjects
+            └── Scene_Keypad_PageObject.cs
 ```
 
 #### 3.2.2 Full Tests（Use Simplified Driver Codeがoffの場合）
 
 ```
 Assets
-├── AutomatedQA
-│   └── GeneratedTests
-│       ├── FullTestsWithSteps_Keypad2013.cs
-│       └── Steps
-│           └── Steps_Keypad2013.cs
+└── AutomatedQA
+    └── GeneratedTests
+        ├── FullTestsWithSteps_Keypad2013.cs
+        └── Steps
+            └── Steps_Keypad2013.cs
 ```
 
 #### 3.3 Simple Tests
 
 ```
 Assets
-├── AutomatedQA
-│   └── GeneratedTests
-│       └── SimpleTests_Keypad2013.cs
+└── AutomatedQA
+    └── GeneratedTests
+        └── SimpleTests_Keypad2013.cs
 ```
 
 ### AutomatedRun
@@ -93,18 +93,18 @@ Assets
 
 ```
 Assets
-├── AutomatedRun
-│   ├── GameCrawlerExample.asset        // 5.3.2 LoadSceneAutomator, 5.3.3 GameCrawlerAutomator
-│   └── PlaybackScenarioExample.asset   // 5.3.1 RecordedPlaybackAutomator
+└── AutomatedRun
+    ├── GameCrawlerExample.asset        // 5.3.2 LoadSceneAutomator, 5.3.3 GameCrawlerAutomator
+    └── PlaybackScenarioExample.asset   // 5.3.1 RecordedPlaybackAutomator
 ```
 
 #### 5.2 APIによる実行
 
 ```
 Assets
-├── Scripts
-│   └── Editor
-│       └── CentralAutomationControllerExample.cs
+└── Scripts
+    └── Editor
+        └── CentralAutomationControllerExample.cs
 ```
 
 #### 5.4 カスタムAutomator
@@ -113,11 +113,11 @@ Assets
 Assets
 ├── AutomatedRun
 │   └── CustomAutomatorExample.asset
-├── Scripts
-│   └── Runtime
-│       └── CustomAutomator
-│           ├── CustomAutomator.asmdef
-│           └── WaitAutomator.cs
+└── Scripts
+    └── Runtime
+        └── CustomAutomator
+            ├── CustomAutomator.asmdef
+            └── WaitAutomator.cs
 ```
 
 
