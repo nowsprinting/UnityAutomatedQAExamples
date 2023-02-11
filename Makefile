@@ -1,10 +1,15 @@
-# Copyright (c) 2021 Koji Hasegawa.
+# Copyright (c) 2021-2023 Koji Hasegawa.
 # This software is released under the MIT License.
 
-PROJECT_HOME?=$(PWD)
+PROJECT_HOME?=$(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 BUILD_DIR?=$(PROJECT_HOME)/Build
 LOG_DIR?=$(PROJECT_HOME)/Logs
 UNITY_VERSION?=$(shell grep 'm_EditorVersion:' $(PROJECT_HOME)/ProjectSettings/ProjectVersion.txt | grep -o -E '\d{4}\.[1-4]\.\d+[abfp]\d+')
+
+# Code Coverage report filter (comma separated)
+# see: https://docs.unity3d.com/Packages/com.unity.testtools.codecoverage@1.2/manual/CoverageBatchmode.html
+EMBEDDED_PACKAGE_ASSEMBLIES?=$(shell echo $(shell find ./Packages -name "*.asmdef" | sed -e s/.*\\//\+/ | sed -e s/\\.asmdef// | sed -e s/^.*\\.Tests//) | sed -e s/\ /,/g)
+COVERAGE_ASSEMBLY_FILTERS?=+<assets>,$(EMBEDDED_PACKAGE_ASSEMBLIES),-*.Tests,-GeneratedTests
 
 UNAME := $(shell uname)
 ifeq ($(UNAME), Darwin)
@@ -28,10 +33,6 @@ UNITY_YAML_MERGE?=$(UNITY_HOME)\Data\Tools\UnityYAMLMerge.exe
 STANDALONE_PLAYER=StandaloneWindows64
 endif
 endif
-
-# Code Coverage report filter (comma separated)
-# see: https://docs.unity3d.com/Packages/com.unity.testtools.codecoverage@1.1/manual/CoverageBatchmode.html
-COVERAGE_ASSEMBLY_FILTERS?=+<user>,-*.Tests,-GeneratedTests
 
 define test_arguments
   -projectPath $(PROJECT_HOME) \
@@ -64,7 +65,7 @@ define cover
     -debugCodeOptimization \
     -enableCodeCoverage \
     -coverageResultsPath $(LOG_DIR) \
-    -coverageOptions 'generateAdditionalMetrics;assemblyFilters:$(COVERAGE_ASSEMBLY_FILTERS)'
+    -coverageOptions 'generateAdditionalMetrics;generateTestReferences;dontClear;assemblyFilters:$(COVERAGE_ASSEMBLY_FILTERS)'
 endef
 
 define cover_report
@@ -75,15 +76,15 @@ define cover_report
     -quit \
     -enableCodeCoverage \
     -coverageResultsPath $(LOG_DIR) \
-    -coverageOptions 'generateAdditionalMetrics;generateHtmlReport;assemblyFilters:+<project>'
+    -coverageOptions 'generateHtmlReport;generateAdditionalMetrics;generateAdditionalReports;assemblyFilters:$(COVERAGE_ASSEMBLY_FILTERS)'
 endef
 
 .PHONY: usage
 usage:
 	@echo "Tasks:"
+	@echo "  clean: Clean Build and Logs directories in created project."
+	@echo "  setup_unityyamlmerge: Setup UnityYAMLMerge as mergetool in .git/config."
 	@echo "  open_editor: Open this project in Unity editor."
-	@echo "  apply_unityyamlmerge: Apply UnityYAMLMerge as mergetool in .git/config."
-	@echo "  clean: Clean /Build and /Logs directories."
 	@echo "  test_editmode: Run Edit Mode tests."
 	@echo "  test_playmode: Run Play Mode tests."
 	@echo "  cover_report: Create code coverage HTML report."
@@ -92,21 +93,20 @@ usage:
 	@echo "  test_android: Run Play Mode tests on Android device."
 	@echo "  test_ios: Run Play Mode tests on iOS device."
 
-.PHONY: open_editor
-open_editor:
-	$(UNITY) -projectPath $(PROJECT_HOME) -logFile $(LOG_DIR)/editor.log &
-
-# Apply UnityYAMLMerge as mergetool in .git/config
-.PHONY: apply_unityyamlmerge
-apply_unityyamlmerge:
-	git config --local merge.tool "unityyamlmerge"
-	git config --local mergetool.unityyamlmerge.trustExitCode false
-	git config --local mergetool.unityyamlmerge.cmd '$(UNITY_YAML_MERGE) merge -p "$$BASE" "$$REMOTE" "$$LOCAL" "$$MERGED"'
-
 .PHONY: clean
 clean:
 	rm -rf $(BUILD_DIR)
 	rm -rf $(LOG_DIR)
+
+.PHONY: setup_unityyamlmerge
+setup_unityyamlmerge:
+	git config --local merge.tool "unityyamlmerge"
+	git config --local mergetool.unityyamlmerge.trustExitCode false
+	git config --local mergetool.unityyamlmerge.cmd '$(UNITY_YAML_MERGE) merge -p "$$BASE" "$$REMOTE" "$$LOCAL" "$$MERGED"'
+
+.PHONY: open_editor
+open_editor:
+	$(UNITY) -projectPath $(PROJECT_HOME) -logFile $(LOG_DIR)/editor.log &
 
 .PHONY: test_editmode
 test_editmode:
@@ -120,28 +120,26 @@ test_playmode:
 cover_report:
 	$(call cover_report)
 
-# Run Edit Mode and Play Mode tests with coverage and html-report by code coverage package
-# このターゲットを`-k`オプション付きで実行すれば、もしEdit/ Play Modeテストがfailしても
-# Htmlレポート生成まで実行した上でエラーを示すexit codeが返されます
+# Run Edit Mode and Play Mode tests with coverage and html-report by code coverage package.
+# If you run this target with the `-k` option, if the Edit/Play Mode test fails,
+# it will run through to Html report generation and return an exit code indicating an error.
 .PHONY: test
 test: test_editmode test_playmode cover_report
 
 # Run Play Mode tests on standalone player
-# Code Coverage packageはプレイヤー実行に対応していないのでテストのみ
+# Run test because code coverage package is not support run on standalone player.
 .PHONY: test_standalone_player
 test_standalone_player:
 	$(call test,$(STANDALONE_PLAYER))
 
 # Run Play Mode tests on Android device
-# 端末はUSB接続され、adbコマンドで操作可能であること
-# Code Coverage packageはプレイヤー実行に対応していないのでテストのみ
+# Run test because code coverage package is not support run on standalone player.
 .PHONY: test_android
 test_android:
 	$(call test,Android)
 
 # Run Play Mode tests on iOS device
-# 実行するとXcodeが起動し、USB接続された端末上にインストール・実行されます
-# Code Coverage packageはプレイヤー実行に対応していないのでテストのみ
+# Run test because code coverage package is not support run on standalone player.
 .PHONY: test_ios
 test_ios:
 	$(call test,iOS)

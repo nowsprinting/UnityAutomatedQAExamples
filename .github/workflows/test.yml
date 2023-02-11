@@ -1,3 +1,6 @@
+# Copyright (c) 2021-2023 Koji Hasegawa.
+# This software is released under the MIT License.
+
 name: Test
 
 on:
@@ -26,44 +29,55 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        targetPlatform:
-          - StandaloneLinux64
         unityVersion: # Available versions see: https://game.ci/docs/docker/versions
-          - 2019.4.39f1
+          - 2019.4.40f1
+        include:
+          - unityVersion: 2019.4.40f1
+            octocov: true
 
     steps:
-      # Checkout
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
           submodules: false
           lfs: false
 
-      # Cache
       - uses: actions/cache@v3
         with:
           path: Library
-          key: Library-${{ matrix.targetPlatform }}-${{ matrix.unityVersion }}
+          key: Library-${{ matrix.unityVersion }}
           restore-keys: |
-            Library-${{ matrix.targetPlatform }}-
             Library-
 
-      # Test
-      - name: Create license secret key
-        id: license
-        run: echo "secret_key=UNITY_LICENSE_$(echo ${{ matrix.unityVersion }} | cut -c 1-4)" >> "$GITHUB_OUTPUT"
+      - name: Set coverage assembly filters
+        run: |
+          assemblies=$(find ./Packages -name "*.asmdef" | sed -e s/.*\\//\+/ | sed -e s/\\.asmdef// | sed -e s/^.*\\.Tests//)
+          # shellcheck disable=SC2001,SC2048,SC2086
+          echo "assembly_filters=+<assets>,$(echo ${assemblies[*]} | sed -e s/\ /,/g),-*.Tests,-GeneratedTests" >> "$GITHUB_ENV"
+
+      - name: Set license secret key
+        run: echo "secret_key=UNITY_LICENSE_$(echo ${{ matrix.unityVersion }} | cut -c 1-4)" >> "$GITHUB_ENV"
 
       - name: Run tests
         uses: game-ci/unity-test-runner@v2
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
-          unityVersion: ${{ matrix.unityVersion }}  # 通常は未指定（`auto`）でok
+          unityVersion: ${{ matrix.unityVersion }}  # Default is `auto`
           checkName: test result (${{ matrix.unityVersion }})
-          coverageOptions: generateAdditionalMetrics;generateHtmlReport;assemblyFilters:+<user>,-*.Tests,-GeneratedTests
-          # see: https://docs.unity3d.com/Packages/com.unity.testtools.codecoverage@1.1/manual/CoverageBatchmode.html
+          customParameters: -testCategory "!IgnoreCI"
+          coverageOptions: generateAdditionalMetrics;generateTestReferences;generateHtmlReport;generateAdditionalReports;dontClear;assemblyFilters:${{ env.assembly_filters }}
+          # see: https://docs.unity3d.com/Packages/com.unity.testtools.codecoverage@1.2/manual/CoverageBatchmode.html
         env:
-          UNITY_LICENSE: ${{ secrets[steps.license.outputs.secret_key] }}
+          UNITY_LICENSE: ${{ secrets[env.secret_key] }}
         id: test
+
+      - name: Set coverage path for octocov
+        run: sed -i -r 's/\.\/Logs/${{ steps.test.outputs.coveragePath }}/' .octocov.yml
+        if: ${{ matrix.octocov }}
+
+      - name: Run octocov
+        uses: k1LoW/octocov-action@v0
+        if: ${{ matrix.octocov }}
 
       - name: Upload test results
         uses: actions/upload-artifact@v3
@@ -77,8 +91,8 @@ jobs:
 
   notify:
     needs: test
-    if: always()
     runs-on: ubuntu-latest
+    if: always()
 
     steps:
       - uses: Gamesight/slack-workflow-status@v1.2.0
