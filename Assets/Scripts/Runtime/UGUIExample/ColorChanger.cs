@@ -4,7 +4,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace UGUIExample.Keypad
+namespace UGUIExample
 {
     [RequireComponent(typeof(BoxCollider))]
     [RequireComponent(typeof(Renderer))]

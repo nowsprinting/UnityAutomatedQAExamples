@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace UGUIExample.Keypad
+namespace UGUIExample
 {
     [RequireComponent(typeof(Button))]
     public class TransitionButton : MonoBehaviour

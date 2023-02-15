@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UGUIExample.Keypad
+namespace UGUIExample
 {
     [RequireComponent(typeof(Button))]
     public class KeypadButton : MonoBehaviour

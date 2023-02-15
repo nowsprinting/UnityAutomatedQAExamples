@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace UGUIExample.Keypad
+namespace InputSystemExample
 {
     [RequireComponent(typeof(Text))]
     public class InputDisplay : MonoBehaviour
