@@ -37,8 +37,7 @@ namespace Tests.Runtime
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
             // Automated QAのTest Reportに名前付きでレポートを残す
-            ReportingManager.CurrentTestName =
-                $"{TestContext.CurrentContext.Test.ClassName}.{TestContext.CurrentContext.Test.Name}";
+            ReportingManager.CurrentTestName = $"{TestContext.CurrentContext.Test.FullName}";
             ReportingManager.InitializeDataForNewTest();
         }
 
