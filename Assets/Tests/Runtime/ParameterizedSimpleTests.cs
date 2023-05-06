@@ -21,7 +21,7 @@ namespace Tests.Runtime
     /// Automated QAパッケージの *Simple Test*（JSONファイルを読むタイプ）をパラメタライズドテスト対応にしたサンプル
     ///
     /// 実装のポイント
-    /// - Async Testにすることでパラメチャライズドテストを可能に
+    /// - Async Testにすることでパラメタライズドテストを可能に
     /// - RecordedTestSuite基底クラスおよびRecordedTest属性は使用せず、テストメソッド内でSceneロードを行なうことで、擬似乱数シード値を固定可能に
     /// - Test Report に名前付きでレポートを残すようにReportingManager.CurrentTestNameを設定
     /// </summary>
