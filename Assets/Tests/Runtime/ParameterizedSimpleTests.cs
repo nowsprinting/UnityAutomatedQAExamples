@@ -43,7 +43,7 @@ namespace Tests.Runtime
 
         [TestCase("Assets/Recordings/Keypad1997.json", "1997")]
         [TestCase("Assets/Recordings/Keypad2013.json", "2013")]
-        public async Task ParameterizedPlayback(string recordingJsonPath, string expectedHistoryText)
+        public async Task ParameterizedPlaybackAsync(string recordingJsonPath, string expectedHistoryText)
         {
             await SceneManager.LoadSceneAsync("Keypad");
             // Note: ランダム要素のあるSceneの場合、ここで擬似乱数シード値を固定できる
