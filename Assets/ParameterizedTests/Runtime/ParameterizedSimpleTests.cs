@@ -18,7 +18,7 @@ using UnityEngine.UI;
 namespace ParameterizedTests.Runtime
 {
     /// <summary>
-    /// Automated QAパッケージの *Simple Test*（JSONファイルを読むタイプ）をパラメタライズドテスト対応にしたサンプル
+    /// Automated QAパッケージの **Simple Tests**（JSONファイルを読むタイプ）をパラメタライズドテスト対応にしたサンプル
     ///
     /// 実装のポイント
     /// - Async Testにすることでパラメタライズドテストを可能に

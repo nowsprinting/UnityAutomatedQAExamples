@@ -120,6 +120,18 @@ Assets
             └── WaitAutomator.cs
 ```
 
+### ParameterizedTests
+
+『[Unity Test Framework完全攻略ガイド 統合テスト編](https://www.nowsprinting.com/entry/2023/05/21/043237)』の「2.4.2 Automated QA パッケージによるキャプチャ/プレイバック」で紹介している、
+**Simple Tests**（JSONファイルを読むタイプ）をパラメタライズドテスト対応した例
+
+```
+Assets
+└── ParameterizedTests
+    └── Runtime
+        └── ParameterizedSimpleTests.cs
+```
+
 
 
 ## License
