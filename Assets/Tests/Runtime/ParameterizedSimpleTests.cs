@@ -26,7 +26,6 @@ namespace Tests.Runtime
     /// - Test Report に名前付きでレポートを残すようにReportingManager.CurrentTestNameを設定
     /// </summary>
     [TestFixture]
-    [Category("IgnoreCI")]
     public class ParameterizedSimpleTests : AutomatedTestSuite
     {
         [UnitySetUp]

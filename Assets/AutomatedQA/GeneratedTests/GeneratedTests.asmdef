@@ -1,10 +1,23 @@
 {
     "name": "GeneratedTests",
-    "optionalUnityReferences": [
-        "TestAssemblies"
-    ],
     "references": [
         "Unity.AutomatedQA",
-        "Unity.AutomatedQA.TestTools"
-    ]
+        "Unity.AutomatedQA.TestTools",
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner",
+        "TestHelper"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
