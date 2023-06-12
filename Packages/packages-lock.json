@@ -7,6 +7,15 @@
       "dependencies": {},
       "url": "https://package.openupm.com"
     },
+    "com.nowsprinting.test-helper": {
+      "version": "0.1.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.test-framework": "1.3.4"
+      },
+      "url": "https://package.openupm.com"
+    },
     "com.unity.automated-testing": {
       "version": "0.8.1-preview.2",
       "depth": 0,
