@@ -15,7 +15,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 using UnityEngine.UI;
 
-namespace Tests.Runtime
+namespace ParameterizedTests.Runtime
 {
     /// <summary>
     /// Automated QAパッケージの *Simple Test*（JSONファイルを読むタイプ）をパラメタライズドテスト対応にしたサンプル
